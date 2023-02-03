@@ -16,7 +16,12 @@ img {
   border-color: #c0b9dd;
   margin: 10px;
   padding: 10px;
-  /* drop-shadow: 16px 16px 10px black; */
+}
+
+img:hover {
+  border: dashed 10px;
+  border-radius: 5px;
+  border-color: lightblue;
 }
 
 h1 {
