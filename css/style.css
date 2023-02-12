@@ -53,7 +53,7 @@ h2 {
 }
 
 .skip-to-content {
-  color: teal;
+  color: #006666;
   text-decoration: underline;
 }
 
@@ -69,7 +69,7 @@ footer {
 }
 
 a {
-  color: #80a1d4;
+  color: #2e69c3;
   font-size: 20px;
 }
 
@@ -93,7 +93,7 @@ li {
 }
 
 .active {
-  color: red;
+  color: #cd0000;
   border: solid 2px;
   padding: 10px;
   border-radius: 12px;
