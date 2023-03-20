@@ -215,3 +215,50 @@ dd p {
   background-size: 13px, 100%;
   font-weight: 700;
 }
+
+#searchBox {
+  font-size: 22px;
+  margin: 0px 5px;
+}
+
+/* Portrait Mode tablet view */
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  img {
+    width: 75%;
+  }
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  h2 {
+    font-size: 28px;
+  }
+  #main-content div {
+    font-size: 28px;
+  }
+  p {
+    font-size: 14px;
+  }
+}
+
+/* Landscape Mode tablet view */
+@media screen and (min-device-width: 1000px) and (max-device-width: 1300px) {
+  img {
+    width: 50%;
+  }
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  h2 {
+    font-size: 28px;
+  }
+  #main-content div {
+    font-size: 28px;
+  }
+  p {
+    font-size: 14px;
+  }
+}

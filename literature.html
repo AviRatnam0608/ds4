@@ -21,7 +21,7 @@
     <title>Women's Web - Literature</title>
   </head>
 
-  <body>
+  <body onload="getAllWriters()">
     <a class="skip-to-content" href="#main-content">Skip to Content</a>
     <header>
       <nav>
@@ -42,6 +42,12 @@
     </header>
 
     <main id="main-content">
+      <div>
+        <label for="searchBox">Search for Writer:</label>
+        <input id="searchBox" type="text" placeholder="Bell Hooks..." onchange="searchWriter()" />
+        <div id="searchResult"></div>
+      </div>
+
       <div>
         bell hooks
         <img
@@ -552,6 +558,23 @@
       <a href="#main-content" class="tops">
         <i class="fa-solid fa-chevron-up"></i>
       </a>
+      <script>
+        let allWriters = [];
+        function getAllWriters() {
+          const allImgs = document.querySelectorAll("img");
+          allImgs.forEach((element)=>{
+            allWriters.push(element["alt"].slice(9,).toLowerCase())
+          })
+        }
+        function searchWriter() {
+          const writer = document.getElementById("searchBox").value.toLowerCase();
+          const result = document.getElementById("searchResult");
+          console.log(allWriters)
+          
+          allWriters.includes(writer) ? result.innerHTML = `<p>This writer is in the list!</p>` : result.innerHTML = `<p>This writer is not in the list!</p>`
+          console.log(writer)
+        }
+      </script>
     </main>
     <footer>
       <p class="thanks">Thanks for visiting! <i class="far fa-grin"> </i></p>
