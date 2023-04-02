@@ -21,7 +21,7 @@
     <title>Women's Web - Dictionary</title>
   </head>
 
-  <body>
+  <body onload="getAllDefinitions()">
     <a class="skip-to-content" href="#main-content">Skip to Content</a>
     <header>
       <nav>
@@ -46,7 +46,6 @@
             Key Concepts In Post-Colonial Studies - Ashcroft, Bill, Gareth Griffiths, and Helen Tiffin,
             or myself -->
       <!-- interpretation of equity from https://everydayfeminism.com/2014/09/equality-is-not-enough/ -->
-
       <h1>Feminist Dictionary</h1>
       Words you maybe don't understand but probably want to know
     </header>
@@ -58,7 +57,11 @@
             Key Concepts In Post-Colonial Studies - Ashcroft, Bill, Gareth Griffiths, and Helen Tiffin,
             or myself -->
       <!-- interpretation of equity from https://everydayfeminism.com/2014/09/equality-is-not-enough/ -->
-
+      <div>
+        <p>Search for a definition</p>
+        <input id="searchBox" type="text" onchange="searchVal()" />
+        <button id="goToDef" href="" onclick="goToDef()">click</button>
+      </div>
       <dl>
         <dt>Agency</dt>
         <dd>
@@ -298,7 +301,35 @@
         <i class="fa-solid fa-chevron-up"></i>
       </a>
     </main>
+    <script>
+      const dtElements = document.querySelectorAll("dt");
+      let allDefs = [];
+      let searchTerm;
 
+      function getAllDefinitions() {
+        dtElements.forEach((definition) => {
+          allDefs.push(definition.textContent.toLowerCase());
+        });
+        console.log(allDefs);
+      }
+
+      function searchVal() {
+        searchTerm = document.querySelector("#searchBox").value.toLowerCase();
+        dtElements.forEach((element) => {
+          if (element.textContent.toLowerCase() === searchTerm) {
+            element.id = searchTerm;
+            console.log(element);
+          }
+        });
+        console.log(searchTerm);
+        document.querySelector("#goToDef").href = `#${searchTerm}`;
+        console.log(document.querySelector("#goToDef").attributes);
+      }
+
+      function goToDef() {
+        console.log(":(");
+      }
+    </script>
     <footer>
       <p class="thanks">Thanks for visiting! <i class="far fa-grin"></i></p>
       <p>Orginal content created by Kelsey Toporski 2019</p>

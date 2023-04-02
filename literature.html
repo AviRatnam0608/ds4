@@ -45,9 +45,9 @@
       <div>
         <label for="searchBox">Search for Writer:</label>
         <input id="searchBox" type="text" placeholder="Bell Hooks..." onchange="searchWriter()" />
-        <div id="searchResult"></div>
+        <div id="searchResult">
+        </div>
       </div>
-
       <div>
         bell hooks
         <img
@@ -569,8 +569,8 @@
         function searchWriter() {
           const writer = document.getElementById("searchBox").value.toLowerCase();
           const result = document.getElementById("searchResult");
+
           console.log(allWriters)
-          
           allWriters.includes(writer) ? result.innerHTML = `<p>This writer is in the list!</p>` : result.innerHTML = `<p>This writer is not in the list!</p>`
           console.log(writer)
         }
