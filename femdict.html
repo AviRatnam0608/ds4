@@ -57,10 +57,14 @@
             Key Concepts In Post-Colonial Studies - Ashcroft, Bill, Gareth Griffiths, and Helen Tiffin,
             or myself -->
       <!-- interpretation of equity from https://everydayfeminism.com/2014/09/equality-is-not-enough/ -->
-      <div>
+      <div id="lookfordef">
         <p>Search for a definition</p>
+        <p>
+          <strong>How to use:</strong> First type the word you're looking for
+          <strong>and press enter,</strong>then click on Find Definition
+        </p>
         <input id="searchBox" type="text" onchange="searchVal()" />
-        <button id="goToDef" href="" onclick="goToDef()">click</button>
+        <a id="goToDef" href="">Find Definition</a>
       </div>
       <dl>
         <dt>Agency</dt>
@@ -314,20 +318,36 @@
       }
 
       function searchVal() {
+        document.querySelector("#goToDef").removeAttribute("onclick");
+        let hasDef = false;
         searchTerm = document.querySelector("#searchBox").value.toLowerCase();
         dtElements.forEach((element) => {
           if (element.textContent.toLowerCase() === searchTerm) {
             element.id = searchTerm;
+            hasDef = true;
             console.log(element);
           }
         });
         console.log(searchTerm);
-        document.querySelector("#goToDef").href = `#${searchTerm}`;
-        console.log(document.querySelector("#goToDef").attributes);
+        hasDef
+          ? document
+              .querySelector("#goToDef")
+              .setAttribute("href", `#${searchTerm}`)
+          : document
+              .querySelector("#goToDef")
+              .setAttribute("onclick", `errorMessage()`);
+
+        console.log(document.querySelector("#goToDef"));
       }
 
-      function goToDef() {
-        console.log(":(");
+      function errorMessage() {
+        document.querySelector("#goToDef").removeAttribute("href");
+        const errorDiv = document.createElement("p");
+        const errorText = document.createTextNode(
+          "The definition isn't there :( check your spelling perhaps?"
+        );
+        errorDiv.appendChild(errorText);
+        document.querySelector("#lookfordef").appendChild(errorDiv);
       }
     </script>
     <footer>
